@@ -1,0 +1,140 @@
+body {
+  text-align: left;
+  direction: ltr;
+}
+
+.side-bar {
+  left: -400px;
+}
+
+.side-bar.open {
+  right: auto !important;
+  left: 0;
+}
+
+.custom-paginate ul li a span.number.icon i {
+  transform: rotate(180deg);
+}
+
+.modal-content .content .head h4 {
+  text-align: left;
+}
+
+.modal-content .content .head::after {
+  right: auto;
+  left: -10px;
+}
+.team .info_row .head_path::after {
+  right: -65px;
+  left: auto;
+}
+
+.upload label::after {
+  left: auto;
+  right: 20px;
+}
+
+.nice-select::after {
+  width: 10px;
+  height: 10px;
+  left: 94%;
+  right: auto;
+}
+
+.statics .all_content:after {
+  left: auto;
+  right: -58px;
+}
+
+.statics .counter:after {
+  left: auto;
+  right: -48px;
+  width: 49px;
+  height: 125px;
+  top: -51px;
+  transform: rotate(-50deg);
+}
+
+.statics .counter {
+  clip-path: polygon(
+    30px 0,
+    calc(100% - 30px) 0px,
+    100% 24px,
+    100% calc(100% - 0px),
+    calc(100% - 0px) 100%,
+    0px 100%,
+    0 calc(100% - 0px),
+    0 0px
+  );
+}
+
+.footer .footer_info .social_media ul li a,
+.navbar_top .all_social .lang {
+  clip-path: polygon(
+    calc(100% - 7px) 0,
+    100% 7px,
+    100% calc(100% - 0px),
+    calc(100% - 0px) 100%,
+    0px 100%,
+    0 calc(100% - 0px),
+    0 0px,
+    7px 0
+  );
+}
+
+.projects .owl-carousel .title {
+  clip-path: polygon(
+    calc(100% - 14px) 0,
+    100% 14px,
+    100% calc(100% - 0px),
+    calc(100% - 0px) 100%,
+    0px 100%,
+    0 calc(100% - 0px),
+    0 0px,
+    14px 0
+  );
+}
+
+.main-projects .title {
+  left: 40px;
+  right: auto;
+}
+
+.projects .owl-carousel .owl-item.center > div .content .all_content {
+  left: 0;
+  right: auto;
+  text-align: start;
+}
+
+.projects .owl-carousel .owl-item > div .all_content .desc h5 {
+  text-align: start;
+}
+
+.projects .owl-carousel .owl-item .all_content .desc ul {
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.projects .owl-carousel .owl-item .all_content .desc ul li {
+  flex-direction: unset;
+}
+
+.btn-whatsapp-pulse {
+  right: auto;
+  left: 27px;
+}
+
+.footer .footer_info .social_media ul li a:after {
+  right: -48px;
+  left: auto;
+  transform: rotate(-48deg);
+}
+
+/* media */
+
+@media (max-width: 1200px) {
+  .main-projects .item .all_content {
+    left: 25px;
+    right: auto;
+  }
+}

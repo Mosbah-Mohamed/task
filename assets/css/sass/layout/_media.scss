@@ -1,0 +1,71 @@
+// ========= start media ==========
+@media (min-width: 1200px) {
+  .container {
+    // max-width: 1400px;
+  }
+}
+
+@media (max-width: 1192) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (max-width: 991px) {
+}
+
+@media (max-width: 767px) {
+  .description_section .info {
+    span {
+      font-size: 20px;
+    }
+    h1 {
+      font-size: 35px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+
+  .last_section .content {
+    margin-bottom: 20px;
+    h2,
+    p {
+      font-size: 17px;
+    }
+  }
+
+  .airpods .stage {
+    flex-direction: column;
+
+    .c-screens,
+    .c-screens__image,
+    img {
+      height: 300px;
+    }
+
+    .c-screens__image {
+      .top_image {
+        width: 100px;
+        height: 100px;
+        left: -20%;
+      }
+    }
+
+    .c-screens,
+    .c-content {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+}
+
+@media (max-width: 575px) {
+}
+
+@media (max-width: 450px) {
+}
+// ========= end media ==========

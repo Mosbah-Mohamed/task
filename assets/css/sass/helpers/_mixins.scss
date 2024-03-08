@@ -1,0 +1,155 @@
+/*======================================= media query ========================================================= */
+
+@mixin xLargeMedia {
+  @media (max-width: 1999px) {
+    @content;
+  }
+}
+
+@mixin largeMedia {
+  @media (max-width: 991px) {
+    @content;
+  }
+}
+
+@mixin smallMedia {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin minMedia {
+  @media (max-width: 575px) {
+    @content;
+  }
+}
+
+/* ================================== useful mixin 1 ========================================================== */
+
+/*============================ auto prefixes css3 ============================================================= */
+
+@mixin prefixer($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{"-" + $prefix + "-" + $property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+/*================================= animation prefix ========================================================== */
+
+@mixin keyFrame($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+/*=================================== centering1 ============================================================== */
+
+@mixin centering {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin start_FadeInDown {
+  opacity: 0;
+  -webkit-transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0);
+}
+
+@mixin animation_FadeInDown {
+  animation: fadeInDown 1s both;
+  -webkit-animation: fadeInDown 1s both;
+}
+
+@mixin start_FadeInUp {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0);
+}
+
+@mixin animation_FadeInUp {
+  animation: fadeInUp 1s both;
+  -webkit-animation: fadeInUp 1s both;
+}
+
+/* Border-notch mixin: copy this to your scss file */
+@mixin border-notch($tl: null, $tr: null, $br: null, $bl: null) {
+  // fix type errors
+  @if ($tl == 0) {
+    $tl: 0px;
+  }
+  @if ($tr == 0) {
+    $tr: 0px;
+  }
+  @if ($br == 0) {
+    $br: 0px;
+  }
+  @if ($bl == 0) {
+    $bl: 0px;
+  }
+
+  @if ($bl == null) {
+    @if ($br == null) {
+      @if ($tr == null) {
+        // all corners
+        clip-path: polygon(
+          #{$tl} 0,
+          calc(100% - #{$tl}) 0,
+          100% #{$tl},
+          100% calc(100% - #{$tl}),
+          calc(100% - #{$tl}) 100%,
+          #{$tl} 100%,
+          0 calc(100% - #{$tl}),
+          0 #{$tl}
+        );
+      } @else {
+        // tl & br, tr & bl
+        clip-path: polygon(
+          #{$tl} 0,
+          calc(100% - #{$tr}) 0,
+          100% #{$tr},
+          100% calc(100% - #{$tl}),
+          calc(100% - #{$tl}) 100%,
+          #{$tr} 100%,
+          0 calc(100% - #{$tr}),
+          0 #{$tl}
+        );
+      }
+    } @else {
+      // tl, tr & bl, br
+      clip-path: polygon(
+        #{$tl} 0,
+        calc(100% - #{$tr}) 0,
+        100% #{$tr},
+        100% calc(100% - #{$br}),
+        calc(100% - #{$br}) 100%,
+        #{$tr} 100%,
+        0 calc(100% - #{$tr}),
+        0 #{$tl}
+      );
+    }
+  } @else {
+    // tl, tr, br, bl
+    clip-path: polygon(
+      #{$tl} 0,
+      calc(100% - #{$tr}) 0,
+      100% #{$tr},
+      100% calc(100% - #{$br}),
+      calc(100% - #{$br}) 100%,
+      #{$bl} 100%,
+      0 calc(100% - #{$bl}),
+      0 #{$tl}
+    );
+  }
+}
+/* END mixin */
