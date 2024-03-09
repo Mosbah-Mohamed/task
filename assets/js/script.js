@@ -50,15 +50,14 @@ jQuery(document).ready(function ($) {
   var scrollAnimation = new TimelineMax();
   scrollAnimation
     .set($stage, { autoAlpha: 1 })
-    .to($text01, 0, { autoAlpha: 1, ease: Power1.easeInOut }, "trans1")
-    .to($text01, 1, { autoAlpha: 0, ease: Power1.easeInOut }, "trans2")
-    .to($text02, 1, { autoAlpha: 1, ease: Power1.easeInOut }, "trans2")
-    .to($screen01, 1, { autoAlpha: 0, ease: Power1.easeInOut }, "trans2")
-    .to($screen02, 1, { autoAlpha: 1, ease: Power1.easeInOut }, "trans2")
-    .to($text02, 1, { autoAlpha: 0, ease: Power1.easeInOut }, "trans3")
-    .to($text03, 1, { autoAlpha: 1, ease: Power1.easeInOut }, "trans3")
-    .to($screen02, 1, { autoAlpha: 0, ease: Power1.easeInOut }, "trans3")
-    .to($screen03, 1, { autoAlpha: 1, ease: Power1.easeInOut }, "trans3");
+    .to($text01, 0, { autoAlpha: 1, y: 0 }, "trans1") // Initial text visible
+    .to($text02, 0, { autoAlpha: 0, y: 0 }, "trans1") // Second text hidden off-screen
+    .to($screen01, 0, { autoAlpha: 1 }, "trans1") // Initial screen visible
+    .to($screen02, 0, { autoAlpha: 0 }, "trans1") // Second screen hidden off-screen
+    .to($text01, 1, { autoAlpha: 0, y: "100%" }, "trans2") // First text disappears down
+    .to($text02, 1, { autoAlpha: 1, y: 0 }, "trans2") // Second text appears from the top
+    .to($screen01, 1, { autoAlpha: 0 }, "trans2") // First screen disappears down
+    .to($screen02, 1, { autoAlpha: 1 }, "trans2"); // Second screen appears from the top
 
   // build scene and link scrolling to animation
   var scene = new ScrollMagic.Scene({
